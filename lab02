@@ -102,8 +102,5 @@ public class Main {
         System.out.println(result.toString());
     }
     //Napisz metodę statyczną reverseString, która przyjmuje jako argument obiekt typu StringBuilder i zwraca nowy StringBuilder, będący odwróconym napisem pierwotnym.
-    public static void reverseString(){
-        
-    }
-}
 
+}
