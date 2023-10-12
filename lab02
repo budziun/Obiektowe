@@ -11,7 +11,8 @@ public class Main {
         //Piramida();
         //Usuwanie();
         //reverseString();
-        lista();
+        //lista();
+        sumdouble();
     }
     //Napisz metodę generateRandomInt, która generuje i zwraca losową liczbę całkowitą.
     public static int generateRandomInt(){
@@ -126,8 +127,17 @@ public class Main {
         }
     }
     //Napisz program, który tworzy listę tablicową 10 liczb zmiennoprzecinkowych, a następnie oblicza i wyświetla ich sumę.
-    public static void lista10(){
-        ArrayList<Integer> liczby = new ArrayList<>();
+    public static void sumdouble(){
+        ArrayList<Double> liczby = new ArrayList<Double>();
+        double suma=0;
+        for(int i=0;i<15;i++){
+            liczby.add(random.nextDouble());
+        }
+        System.out.println(liczby);
+        for(int i=0;i<15;i++){
+            suma += liczby.get(i);
+        }
+        System.out.println(suma);
     }
 }
 
