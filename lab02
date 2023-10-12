@@ -1,0 +1,62 @@
+import java.util.Random;
+public class Main {
+    public static Random random = new Random();
+    public static void main(String[] args) {
+        System.out.println(Tablicasrednia());
+        MinMaxTab();
+    }
+    //Napisz metodę generateRandomInt, która generuje i zwraca losową liczbę całkowitą.
+    public static int generateRandomInt(){
+        return random.nextInt();
+    }
+    //Napisz metodę generateRandomDouble, która generuje i zwraca losową liczbę zmiennoprzecinkową z zakresu od 0.0 do 1.0
+    public static double generateRandomDouble(){
+        return random.nextDouble();
+    }
+    //generateRandomGaussian, która generuje i zwraca losową liczbę zmiennoprzecinkową zgodnie z rozkładem normalnym.
+    public static double generateRandomGaussian(){
+        return random.nextGaussian();
+    }
+    //Napisz metodę generateRandomBoolean, która generuje i zwraca losową wartość logiczną (true lub false)
+    public static boolean generateRandomBoolean(){
+        return random.nextBoolean();
+    }
+    //Napisz program, który tworzy tablicę jednowymiarową 10 liczb całkowitych, a następnie wyświetla je w konsoli w porządku odwrotnym do wprowadzenia
+    public static void Tablica(){
+        int[] tab = {0,1,2,3,4,5,6,7,8,9};
+        for(int j=9;j>=0;j--){
+            System.out.println(tab[j]);
+        }
+    }
+    //Utwórz program, który tworzy jednowymiarową tablicę 20 liczb losowych z przedziału od 1 do 100, a następnie oblicza i wyświetla ich średnią wartość
+    public static double Tablicasrednia(){
+        int[] tab = new int[20];
+        for(int i=0;i<20;i++){
+            tab[i]=random.nextInt(1,100);
+        }
+        double wynik=0;
+        for(int j=0;j<20;j++){
+            wynik=wynik+tab[j];
+        }
+        return wynik/20;
+    }
+    //Napisz program, który tworzy tablicę jednowymiarową 15 liczb całkowitych, a następnie oblicza i wyświetla największą i najmniejszą wartość w tablicy
+    public static void MinMaxTab(){
+        int[] tab = new int[15];
+        for(int i=0;i<15;i++) {
+            tab[i] = random.nextInt(1, 100);
+        }
+        int min = tab[0];
+        int max = tab[0];
+        for(int j=1;j<15;j++){
+            if(tab[j]<min){
+                min=tab[j];
+            }
+            if(tab[j]>max){
+                max=tab[j];
+            }
+        }
+        System.out.println("Najmniejszy element tablicy: "+min);
+        System.out.println("Najwiekszy  element tablicy: "+max);
+    }
+}
