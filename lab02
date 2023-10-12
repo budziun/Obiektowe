@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,7 +10,8 @@ public class Main {
         //MinMaxTab();
         //Piramida();
         //Usuwanie();
-        reverseString();
+        //reverseString();
+        lista();
     }
     //Napisz metodę generateRandomInt, która generuje i zwraca losową liczbę całkowitą.
     public static int generateRandomInt(){
@@ -112,4 +114,20 @@ public class Main {
         sb.reverse();
         System.out.println(sb.toString());
     }
+    //Napisz program, który tworzy listę tablicową 10 liczb całkowitych, a następnie wyświetla je w konsoli w porządku odwrotnym do wprowadzenia
+    public static void lista(){
+        ArrayList<Integer> liczby = new ArrayList<>();
+        for(int i=0;i<15;i++){
+            liczby.add(random.nextInt(0,50));
+        }
+        System.out.println(liczby);
+        for(int j=14;j>=0;j--){
+            System.out.println(liczby.get(j));
+        }
+    }
+    //Napisz program, który tworzy listę tablicową 10 liczb zmiennoprzecinkowych, a następnie oblicza i wyświetla ich sumę.
+    public static void lista10(){
+        ArrayList<Integer> liczby = new ArrayList<>();
+    }
 }
+
