@@ -12,7 +12,8 @@ public class Main {
         //Usuwanie();
         //reverseString();
         //lista();
-        System.out.println(sumdouble());
+        //System.out.println(sumdouble());
+        average(2.1,1.1,3.1,7.1);
     }
     //Napisz metodę generateRandomInt, która generuje i zwraca losową liczbę całkowitą.
     public static int generateRandomInt(){
@@ -137,5 +138,19 @@ public class Main {
             suma += liczby.get(i);
         }
         return suma;
+    }
+    //Napisz statyczną metodę average, która przyjmuje listę tablicową liczb zmiennoprzecinkowych jako argument i zwraca średnią arytmetyczną wszystkich liczb. Jeżeli lista tablicowa jest pusta, zwróć 0
+    public static double average(ArrayList<Double> arr){
+        double sum = 0;
+        for(int i=0;i<arr.size();i++){
+            arr.add(i+0.1);
+            sum += arr.get(i);
+        }
+       if(arr.size()==0){
+           return 0;
+       }
+       else{
+           return sum/arr.size();
+       }
     }
 }
