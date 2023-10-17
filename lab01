@@ -207,18 +207,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj liczbe");
-        int liczba= scanner.nextInt();
-        int odwrocona = 0;
-        while(liczba !=0){
-            int cyfra= liczba%10;
-            odwrocona = odwrocona+10+cyfra;
-            liczba /=10;
+        System.out.print("Podaj liczbę całkowitą: ");
+        int liczba = scanner.nextInt();
+        int odwroconaLiczba = odwrocLiczbe(liczba);
+        System.out.println("Liczba w odwrotnej kolejności: " + odwroconaLiczba);
+    }
+
+    public static int odwrocLiczbe(int liczba) {
+        int odwroconaLiczba = 0;
+        while (liczba != 0) {
+            int cyfra = liczba % 10; // Pobierz ostatnią cyfrę
+            odwroconaLiczba = odwroconaLiczba * 10 + cyfra; // Dodaj cyfrę do odwroconej liczby
+            liczba /= 10; // Usuń ostatnią cyfrę z liczby
         }
-        System.out.println(odwrocona);
+        return odwroconaLiczba;
     }
 }
-// nie dziala ^^^ ??? 
 //Napisz program, który sprawdzi, czy podana liczba jest liczbą Armstronga. Liczba Amstronga to taka, której suma jej cyfr podniesionych do potęgi równiej liczbie cyfr w tej liczbie, jest równa samej liczbie. (Liczba 153 jest liczbą Armstronga)
 import java.util.Scanner;
 
