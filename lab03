@@ -74,13 +74,26 @@ public class Main {
         jakub.przedstawSie();
         //Wykonaj kolejno poniższe czynności:
         //Stwórz klasę Licznik z jednym polem liczba. Dodaj do klasy metodę zwieksz, która przyjmuje parametr typu int i zwiększa wartość pola liczba o wartość tego parametru. W klasie Main, utwórz zmienną typu int, przekaż ją do metody zwieksz i sprawdź, czy wartość zmiennej zmieniła się po wywołaniu metody.
-
+        Licznik l = new Licznik();
+        l.liczba=100;
+        l.zwieksz(50);
+        System.out.println(l.liczba);
         //Dodaj do klasy Licznik metodę dodaj, która przyjmuje inny obiekt Licznik i dodaje wartość jego pola liczba do pola liczba bieżącego obiektu. Utwórz dwa obiekty Licznik w klasie Main i użyj metody dodaj. Sprawdź, czy obiekt przekazany jako argument metody dodaj zmienił swoją wartość po wywołaniu metody.
-
-        //Stwórz klasę Zmieniacz, która posiada metodę zmienWartosc, która jako argument przyjmuje typ int. Wewnątrz metody zmień wartość argumentu na inną. W klasie Main utwórz zmienną int, a następnie przekaż ją do metody zmienWartosc i sprawdź, czy wartość zmiennej się zmieniła.
-
+        Licznik l2 = new Licznik();
+        l2.liczba=200;
+        l.dodaj(l2);
+        System.out.println(l.liczba);
+        System.out.println(l2.liczba);
         //Dodaj do klasy Zmieniacz metodę zmienObiekt, która jako argument przyjmuje obiekt Licznik. Wewnątrz metody zmień wartość pola liczba obiektu Licznik na inną. W klasie Main utwórz obiekt Licznik, a następnie przekaż go do metody zmienObiekt i sprawdź, czy wartość pola liczba obiektu się zmieniła.
-
+        int testLiczba =5;
+        Zmieniacz idk =new Zmieniacz();
+        idk.zmienWartosc(testLiczba);
+        System.out.println(testLiczba);
+        //Stwórz klasę Zmieniacz, która posiada metodę zmienWartosc, która jako argument przyjmuje typ int. Wewnątrz metody zmień wartość argumentu na inną. W klasie Main utwórz zmienną int, a następnie przekaż ją do metody zmienWartosc i sprawdź, czy wartość zmiennej się zmieniła.
+        Licznik testObiekt = new Licznik();
+        testObiekt.liczba =2;
+        idk.zmienObiekt(testObiekt);
+        System.out.println(testObiekt.liczba);
         //Utwórz klasę Osoba z publicznym polem imie oraz prywatnym polem haslo. Zobacz jak różne modyfikatory dostępu wpływają na dostęp do tych pól z innej klasy.
         Osoba person = new Osoba();
         person.imie = "Stefan";
@@ -88,11 +101,8 @@ public class Main {
         System.out.println(person.haslo);*/
         //haslo has private access in Osoba
         ////////////////////////////////////////////////////
-
         //Do klasyCar dodaj prywatną metodę blowEngine(). Spróbuj ją wywołać na dowolnym istniejącym obiekcie w innej klasie.
-
-        //Stwórz klasę Trener, która jest zadeklarowana jako private. Spróbuj stworzyć obiekt Trener w klasie Main. Jaki jest rezultat?
-
+        //nie zadziala bo jest to prywatna metoda w publicznej klasie
         //Stwórz klasę Trener, która jest zadeklarowana jako private. Spróbuj stworzyć obiekt Trener w klasie Main. Jaki jest rezultat?
         //nie pozwala stworzyc klasy trener na private.
     }
