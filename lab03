@@ -58,8 +58,15 @@ public class Main {
         ///////////////////////////////////////////////////
         //Wykonaj kolejno poniższe czynności:
         //Stwórz klasę Czlowiek z polem imie. Dodaj do klasy metodę przedstawSie, która wyświetli wiadomość “Cześć, jestem” i imię osoby. W klasie Main, utwórz obiekt Czlowiek i wywołaj na nim metodę przedstawSie. Czy musisz użyć słowo kluczowe this w implementacji metody?
+        Czlowiek jakub = new Czlowiek();
+        jakub.imie= "Jakub";
+        jakub.przedstawSie();
         //Dodaj do klasy Czlowiek metodę powiedzCzesc, która jako argument przyjmuje inny obiekt klasy Czlowiek i wyświetla wiadomość “Cześć,” i imię drugiego człowieka. Przeanalizuj działanie.
+        Czlowiek centol = new Czlowiek();
+        centol.imie = "Mateusz";
+        centol.czesc();
         //Dodaj do klasy Czlowiek metodę zmienImie, która jako argument przyjmuje łańcuch znaków i przypisuje go do pola imie. Utwórz obiekt Czlowiek i użyj metody zmienImie do zmiany jego imienia. Następnie wywołaj metodę przedstawSie. Czy imię zostało zmienione? Czy musisz użyć słowo kluczowe this w implementacji metody?
+
         //Dodaj do klasy Czlowiek metodę zamienImionami, która jako argument przyjmuje inny obiekt klasy Czlowiek i zamienia imionami obie osoby. Utwórz dwa obiekty Czlowiek i użyj metody zamienImionami do zamiany ich imion. Następnie wywołaj metodę przedstawSie na obu obiektach. Czy imiona zostały zamienione?
 
         //Wykonaj kolejno poniższe czynności:
@@ -69,6 +76,20 @@ public class Main {
         //Dodaj do klasy Zmieniacz metodę zmienObiekt, która jako argument przyjmuje obiekt Licznik. Wewnątrz metody zmień wartość pola liczba obiektu Licznik na inną. W klasie Main utwórz obiekt Licznik, a następnie przekaż go do metody zmienObiekt i sprawdź, czy wartość pola liczba obiektu się zmieniła.
 
         //Utwórz klasę Osoba z publicznym polem imie oraz prywatnym polem haslo. Zobacz jak różne modyfikatory dostępu wpływają na dostęp do tych pól z innej klasy.
+        Osoba person = new Osoba();
+        person.imie = "Stefan";
+        /*person.haslo = "Trudne";
+        System.out.println(person.haslo);*/
+        //haslo has private access in Osoba
+        ////////////////////////////////////////////////////
+
+        //Do klasyCar dodaj prywatną metodę blowEngine(). Spróbuj ją wywołać na dowolnym istniejącym obiekcie w innej klasie.
+
+        //Stwórz klasę Trener, która jest zadeklarowana jako private. Spróbuj stworzyć obiekt Trener w klasie Main. Jaki jest rezultat?
+
+        //Stwórz klasę Trener, która jest zadeklarowana jako private. Spróbuj stworzyć obiekt Trener w klasie Main. Jaki jest rezultat?
+
+        //
 
     }
 }
