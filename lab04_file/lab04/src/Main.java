@@ -58,7 +58,7 @@ public class Main {
 
         //Stwórz klasę Singleton, która używa pola statycznego do przechowywania jednej i tylko jednej instancji tej klasy. Klasa powinna zawierać prywatny konstruktor oraz publiczną statyczną metodę getInstance(), która zwraca jedyną instancję klasy Singleton. Stwórz przypadek testowy.
 
-        
+
 
     }
 }

@@ -1,14 +1,15 @@
 public class Singleton {
 
-    public static Singleton instancja = new Singleton();
-    public int test = 0;
-
-    public static Singleton getInstance(){
-
-        return instancja;
-    }
+    private static Singleton instancja = new Singleton();
     private Singleton(){
 
-        test++;
     }
-}
+
+    public static Singleton getInstance(){
+        if (instancja == null){
+            instancja = new Singleton();
+                
+            }
+        return instancja;
+        }
+    }
