@@ -1,0 +1,16 @@
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal("zebra");
+        Animal animal2 = new Animal("zebra");
+        System.out.println(animal == animal2);
+        System.out.println(animal.equals(animal2));
+        animal.dajGlos();
+        Cat kot = new Cat("Klakier");
+        System.out.println(kot);
+        kot.dajGlos();
+        Animal animal3 = new Cat("Filemon"); //dziedziczenie podklasy z Animala
+        System.out.println(animal3.getClass()); //klasa kot
+
+
+    }
+}
