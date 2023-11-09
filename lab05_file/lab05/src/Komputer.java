@@ -8,4 +8,5 @@ class Laptop extends Komputer{
     /*protected*/ public void uruchom(){
         System.out.println("Laptop uruchomiony");
     }
+    //java: illegal combination of modifiers: public and protected
 }

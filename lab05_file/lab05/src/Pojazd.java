@@ -5,7 +5,6 @@ public class Pojazd {
 }
 class Samochod extends Pojazd{
     public String marka;
-
     public Samochod(String marka){
         this.marka = marka;
     }

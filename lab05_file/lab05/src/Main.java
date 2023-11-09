@@ -30,7 +30,10 @@ public class Main {
         //        Dodaj metodę toString(), która zwraca informacje o książce w formacie: "Book: [title] by [author], Pages: [numberOfPages].".
         //        Dodaj metodę equals(), która porównuje dwie książki na podstawie ich pól title, author i numberOfPages
 
-        Book ksiazka = new Book("Teoria snów","Jan Nowak",23);
+        Book ksiazka1 = new Book("Teoria snów","Jan Nowak",23);
+        Book ksiazka2 = new Book("Teoria snów","Jan Nowak",23);
+        Book ksiazka3 = new Book("Książka3 ","Sebastian Alvarez",100);
+
 
         //Stwórz klasę Tool z chronionym konstruktorem, który przyjmuje nazwę narzędzia. Następnie stwórz klasę potomną Hammer, która dziedziczy po klasie Tool. W klasie Hammer stwórz konstruktor, który korzysta z konstruktora klasy bazowej. Zastanów się, dlaczego używając modyfikatora private dla konstruktora klasy bazowej, taki scenariusz nie byłby możliwy.
 
@@ -38,15 +41,33 @@ public class Main {
         //Stwórz klasę bazową Pojazd z metodą jedz, która wypisuje “Pojazd jedzie”. Następnie stwórz klasę potomną Samochod, która przesłania metodę jedz tak, by wypisywała “Samochod jedzie”. Utwórz obiekt klasy Samochod i wywołaj jego metodę jedz, aby zaobserwować wynik.
         //Na bazie klasy Pojazd z poprzedniego podpunktu, w klasie Samochod, przesłoń metodę jedz tak, by wywoływała oryginalną metodę z klasy bazowej i dodatkowo wypisywała informacje specyficzne dla klasy Samochod. Użyj słowa kluczowego super, aby wywołać metodę z klasy bazowej.
 
+        Pojazd auto1 = new Pojazd();
+        auto1.jedz();
+        Samochod auto2 = new Samochod("Audi");
+        auto2.jedz();
+        System.out.println("");
+
         //Stwórz klasę Kalkulator z metodą dodaj, która przyjmuje dwa argumenty typu int i zwraca ich sumę. Następnie stwórz klasę potomną KalkulatorRozszerzony, która przesłania metodę dodaj w taki sposób, by przyjmowała trzy argumenty typu int i zwracała ich sumę. Zastanów się, czy to faktycznie przesłanianie metody, czy może coś innego.
 
-        System.out.println(Kalkulator.dodaj(5,11));
-        System.out.println(KalkulatorRozszerzony.dodaj(15,5,154));
+        System.out.println(Kalkulator.dodaj(16,16));
+        System.out.println(KalkulatorRozszerzony.dodaj(25,10,47));
 
         //Stwórz klasę bazową Komputer z publiczną metodą uruchom, która wypisuje “Komputer uruchomiony”. Stwórz klasę potomną Laptop, która próbuje przesłonić metodę uruchom, ale z modyfikatorem dostępu protected. Spróbuj skompilować kod i zastanów się, dlaczego występują pewne ograniczenia w przesłanianiu metod pod względem modyfikatorów dostępu.
 
+        System.out.println("");
+        Komputer pc1 = new Komputer();
+        pc1.uruchom();
+        Laptop lap1 = new Laptop();
+        lap1.uruchom();
+        System.out.println("");
+
         //Stwórz trzy klasy: Istota, Człowiek i Programista. Klasa Człowiek powinna dziedziczyć po klasie Istota, a klasa Programista po klasie Człowiek. W każdej z klas dodaj konstruktor, który wypisuje informację o tworzeniu instancji danej klasy. Stwórz instancję klasy Programista i zaobserwuj kolejność wywoływania konstruktorów.
 
+        Istota istota1 = new Istota();
+        System.out.println("");
+        Czlowiek człowiek1 = new Czlowiek();
+        System.out.println("");
+        Programista prog1 = new Programista();
 
     }
 }

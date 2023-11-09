@@ -9,10 +9,11 @@ public class Book {
         this.numberOfPages = (numberOfPages<0) ? numberOfPages : 1;
 
     }
-
+    @Override
     public String toString(){
-        return "Book: " + title + "by " + author + ", Pages: " +numberOfPages;
+        return "Book: " + this.title + "by " + this.author + ", Pages: " + this.numberOfPages;
     }
+    @Override
     public boolean equals(Object obj){
         if(this ==obj) return true;
         if(obj==null || getClass()!=obj.getClass()) return false;

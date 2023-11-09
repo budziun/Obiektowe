@@ -4,6 +4,8 @@ public class Tool {
         this.name = name;
     }
 }
+//java: modifier private not allowed here -> dlatego nie mozemy uzyc klasy private
+
 class Hammer extends Tool{
     protected Hammer(String name) {
         super(name);
