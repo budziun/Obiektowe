@@ -32,6 +32,6 @@ public class Main {
 
         //Stwórz rekord Car, który zawiera brand, model i fuelConsumptionPer100km. Dodaj metodę fuelCost(double fuelPrice, double distance), która oblicza i zwraca koszt podróży na podstawie podanej ceny paliwa oraz dystansu. Stwórz przypadek testowy.
         Car auto1 = new Car("Audi","A4",6);
-        auto1.fuelCost(100,6.6);
+        auto1.fuelCost(6.6,100);
     }
 }
