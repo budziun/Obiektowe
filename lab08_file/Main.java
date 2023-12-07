@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
@@ -36,7 +37,14 @@ public class Main {
         Collections.sort(zamowienieList);
         System.out.println(zamowienieList);
         //Napisz klasę Order z polami id (typu int), customerName (typu String) oraz orderDate (typu LocalDate). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu orderDate (od najwcześniejszej do najpóźniejszej daty), a w przypadku równości po polu id. Stwórz listę 5 obiektów klasy Order i posortuj ją zgodnie z opisanym kryterium.
-
+        ArrayList<Order> orderList = new ArrayList<>();
+        orderList.add(new Order(1, "John Doe", LocalDate.of(2023, 1, 15)));
+        orderList.add(new Order(2, "Jane Smith", LocalDate.of(2023, 3, 8)));
+        orderList.add(new Order(3, "Bob Johnson", LocalDate.of(2023, 2, 1)));
+        orderList.add(new Order(4, "Alice Brown", LocalDate.of(2023, 3, 8)));
+        orderList.add(new Order(5, "Charlie Wilson", LocalDate.of(2023, 1, 15)));
+        Collections.sort(orderList, new OrderComparator());
+        System.out.println(orderList);
         //Napisz klasę Song z polami title (typu String), artist (typu String) oraz duration (typu int). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu duration (od najkrótszej do najdłuższej piosenki), a w przypadku równości po polu title. Stwórz tablicę 5 obiektów klasy Song i posortuj ją zgodnie z opisanym kryterium.
 
         //Napisz klasę Student z polami id (typu int), name (typu String) oraz averageGrade (typu double). Zaimplementuj dwie klasy implementujące generyczny interfejs Comparator: AverageGradeComparator do porównywania obiektów po polu averageGrade (od najwyższej do najniższej średniej ocen) oraz IdComparator do porównywania obiektów po polu id (od najniższego do najwyższego identyfikatora). Stwórz listę 5 obiektów klasy Student i posortuj ją zgodnie z oboma kryteriami (najpierw po średniej ocen, a następnie po identyfikatorze).
