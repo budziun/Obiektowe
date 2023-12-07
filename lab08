@@ -3,8 +3,9 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Objects;
 
-public class Osoba implements Comparable<Osoba>{
+public class Osoba implements Comparable<Osoba>, Cloneable{
     String name;
     double height;
     int age;
@@ -49,6 +50,7 @@ public class Osoba implements Comparable<Osoba>{
         //Collections.sort(osobaList2,new OsobaAgeComparator().reversed());
         Collections.sort(osobaList2,new OsobaAgeComparator());
         System.out.println(osobaList2);
+
     }
 
    /* @Override ///mozna takim sposobem na piechote
@@ -68,7 +70,10 @@ public class Osoba implements Comparable<Osoba>{
         }
         return Double.compare(o.height,this.height);
     }
-
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        return super.clone();
+    }
 }
 class OsobaHeightComparator implements Comparator<Osoba>
 {
@@ -84,4 +89,14 @@ class OsobaAgeComparator implements Comparator<Osoba>
         return Integer.compare(o2.age, o1.age);
     }
 }
-
+/////////////////////////////////////////////////////////
+//main
+public class Main {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Osoba o1 = new Osoba("Stefan",182,21);
+        Osoba o2 = (Osoba) o1.clone();
+        System.out.println(o1 + " " + o2);
+        o2.age = 95;
+        System.out.println(o1 + " " + o2);
+    }
+}
