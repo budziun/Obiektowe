@@ -1,1 +1,63 @@
-test
+//klasa osoba
+/////////////////////////////////////////////////////////////////////
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Osoba implements Comparable<Osoba>{
+    String name;
+    double height;
+    int age;
+
+    public Osoba(String name, double height, int age) {
+        this.name = name;
+        this.height = height;
+        this.age = age;
+    }
+
+    public Osoba(int age) {
+        this.age = age;
+    }
+
+    public Osoba(double height) {
+        this.height = height;
+    }
+
+    public Osoba(double height, int age) {
+        this.height = height;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "[ " + height + " , "+ age +" ]";
+    }
+
+    public static void main(String[] args){
+        ArrayList<Osoba> osobaList = new ArrayList<>();
+        osobaList.add(new Osoba(156.0,18));
+        osobaList.add(new Osoba(156.0,12));
+        osobaList.add(new Osoba(256.0,21));
+        osobaList.add(new Osoba(176.0,19));
+        System.out.println(osobaList);
+        Collections.sort(osobaList);
+        System.out.println(osobaList);
+    }
+
+   /* @Override
+    public int compareTo(Osoba o) {
+        if(this.height>o.height)
+            return -1;
+        if(this.height == o.height)
+            return 0;
+        else
+            return  1;
+    }*/
+    public int compareTo(Osoba o){
+        //return Double.compare(o.height,this.height);
+        //return (int) Math.signum(o.height-this.height);
+        if(Double.compare(o.height,this.height)==0){
+            return Integer.compare(o.age,this.age);
+        }
+        return Double.compare(o.height,this.height);
+    }
+}
