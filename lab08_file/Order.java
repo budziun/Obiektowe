@@ -1,9 +1,9 @@
 import java.time.LocalDate;
-
-public class Order implements Comparable<Order> {
-    int id;
-    String customerName;
-    LocalDate orderDate;
+import java.util.Comparator;
+class Order {
+    public int id;
+    public String customerName;
+    public LocalDate orderDate;
 
     public Order(int id, String customerName, LocalDate orderDate) {
         this.id = id;
@@ -13,14 +13,16 @@ public class Order implements Comparable<Order> {
 
     @Override
     public String toString() {
-        return "[ " + id + " " + customerName + " " + orderDate + " ]";
+        return "[ "+ id + " " + customerName + " " + orderDate + " ]";
     }
-
+}
+class OrderComparator implements Comparator<Order> {
     @Override
-    public int compareTo(Order o) {
-        if(.compare(this.orderDate,o.orderDate)==0){
-            return Integer.compare(this.id,o.id);
+    public int compare(Order o1, Order o2) {
+        int dateComparison = o1.orderDate.compareTo(o2.orderDate);
+        if (dateComparison != 0) {
+            return dateComparison;
         }
-        return .compare(this.orderDate,o.orderDate);
+        return Integer.compare(o1.id, o2.id);
     }
 }
