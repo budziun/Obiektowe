@@ -1,96 +1,8 @@
-//klasa osoba
-/////////////////////////////////////////////////////////////////////
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.Objects;
+import java.time.LocalDate;
+import java.util.List;
 
-public class Osoba implements Comparable<Osoba>, Cloneable{
-    String name;
-    double height;
-    int age;
-
-    public Osoba(String name, double height, int age) {
-        this.name = name;
-        this.height = height;
-        this.age = age;
-    }
-
-    public Osoba(int age) {
-        this.age = age;
-    }
-
-    public Osoba(double height) {
-        this.height = height;
-    }
-
-    public Osoba(double height, int age) {
-        this.height = height;
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "[ " + height + " , "+ age +" ]";
-    }
-
-    public static void main(String[] args){
-        ArrayList<Osoba> osobaList = new ArrayList<>();
-        osobaList.add(new Osoba(156.0,18));
-        osobaList.add(new Osoba(156.0,12));
-        osobaList.add(new Osoba(256.0,21));
-        osobaList.add(new Osoba(176.0,19));
-        ArrayList<Osoba> osobaList2 = new ArrayList<>();
-        osobaList2.add(new Osoba(156.0,18));
-        osobaList2.add(new Osoba(156.0,12));
-        osobaList2.add(new Osoba(256.0,21));
-        osobaList2.add(new Osoba(140.0,19));
-        Collections.sort(osobaList, new OsobaHeightComparator());
-        System.out.println(osobaList);
-        //Collections.sort(osobaList2,new OsobaAgeComparator().reversed());
-        Collections.sort(osobaList2,new OsobaAgeComparator());
-        System.out.println(osobaList2);
-
-    }
-
-   /* @Override ///mozna takim sposobem na piechote
-    public int compareTo(Osoba o) {
-        if(this.height>o.height)
-            return -1;
-        if(this.height == o.height)
-            return 0;
-        else
-            return  1;
-    }*/
-    public int compareTo(Osoba o){
-        //return Double.compare(o.height,this.height);
-        //return (int) Math.signum(o.height-this.height);
-        if(Double.compare(o.height,this.height)==0){
-            return Integer.compare(o.age,this.age);
-        }
-        return Double.compare(o.height,this.height);
-    }
-    @Override
-    protected Object clone() throws CloneNotSupportedException{
-        return super.clone();
-    }
-}
-class OsobaHeightComparator implements Comparator<Osoba>
-{
-    @Override
-    public int compare(Osoba o1, Osoba o2) {
-        return Double.compare(o2.height, o1.height);
-    }
-}
-class OsobaAgeComparator implements Comparator<Osoba>
-{
-    @Override
-    public int compare(Osoba o1, Osoba o2) {
-        return Integer.compare(o2.age, o1.age);
-    }
-}
-/////////////////////////////////////////////////////////
-//main
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
         Osoba o1 = new Osoba("Stefan",182,21);
@@ -98,5 +10,68 @@ public class Main {
         System.out.println(o1 + " " + o2);
         o2.age = 95;
         System.out.println(o1 + " " + o2);
+        //Napisz klasę Ksiazka, która zawiera pola: tytul (typu String), liczbaStron (typu int) i dataWydania (typu LocalDate). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Ksiazka były sortowane malejąco według liczby stron. Stwórz tablicę 4 obiektów klasy Ksiazka i posortuj ją według sprecyzowanego kryterium.
+        ArrayList<Ksiazka> ksiazkaList = new ArrayList<>();
+        ksiazkaList.add(new Ksiazka("tytul1",33));
+        ksiazkaList.add(new Ksiazka("tytul2",14));
+        ksiazkaList.add(new Ksiazka("tytul3",13));
+        ksiazkaList.add(new Ksiazka("tytul4",133));
+        System.out.println(ksiazkaList);
+        Collections.sort(ksiazkaList);
+        System.out.println(ksiazkaList);
+        //Napisz klasę Samochod, która zawiera pola: marka (typu String), przebieg (typu int) i rokProdukcji (typu int). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Samochod były sortowane rosnąco według przebiegu. Stwórz tablicę 4 obiektów klasy Samochod i posortuj ją według sprecyzowanego kryterium.
+        ArrayList<Samochod> samochodList = new ArrayList<>();
+        samochodList.add(new Samochod("audi",350000,2003));
+        samochodList.add(new Samochod("bmw",150000,1995));
+        samochodList.add(new Samochod("mazda",900000,2000));
+        samochodList.add(new Samochod("toyota",600000,2010));
+        System.out.println(samochodList);
+        Collections.sort(samochodList);
+        System.out.println(samochodList);
+        //Napisz klasę Zamowienie, która zawiera pola: nazwaProduktu (typu String), ilosc (typu int) i cenaJednostkowa (typu double). Zaimplementuj interfejs Comparable w taki sposób, aby obiekty klasy Zamowienie były sortowane według jednego kryterium: malejąco według ceny jednostkowej, a przy równości sortowane były rosnąco według ilości. Stwórz listę tablicową 4 obiektów klasy Zamowienie i posortuj ją według sprecyzowanego kryterium.
+        ArrayList<Zamowienie> zamowienieList = new ArrayList<>();
+        zamowienieList.add(new Zamowienie("mleko",12,3));
+        zamowienieList.add(new Zamowienie("jajka",3,3));
+        zamowienieList.add(new Zamowienie("mąka",5,5));
+        zamowienieList.add(new Zamowienie("cukier",1,6));
+        System.out.println(zamowienieList);
+        Collections.sort(zamowienieList);
+        System.out.println(zamowienieList);
+        //Napisz klasę Order z polami id (typu int), customerName (typu String) oraz orderDate (typu LocalDate). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu orderDate (od najwcześniejszej do najpóźniejszej daty), a w przypadku równości po polu id. Stwórz listę 5 obiektów klasy Order i posortuj ją zgodnie z opisanym kryterium.
+        ArrayList<Order> orderList = new ArrayList<>();
+        orderList.add(new Order(1, "John Doe", LocalDate.of(2023, 1, 15)));
+        orderList.add(new Order(2, "Jane Smith", LocalDate.of(2023, 3, 8)));
+        orderList.add(new Order(3, "Bob Johnson", LocalDate.of(2023, 2, 1)));
+        orderList.add(new Order(4, "Alice Brown", LocalDate.of(2023, 3, 8)));
+        orderList.add(new Order(5, "Charlie Wilson", LocalDate.of(2023, 1, 15)));
+        System.out.println(orderList);
+        Collections.sort(orderList, new OrderComparator());
+        System.out.println(orderList);
+        //Napisz klasę Song z polami title (typu String), artist (typu String) oraz duration (typu int). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu duration (od najkrótszej do najdłuższej piosenki), a w przypadku równości po polu title. Stwórz tablicę 5 obiektów klasy Song i posortuj ją zgodnie z opisanym kryterium.
+        ArrayList<Song> songList = new ArrayList<>();
+        songList.add(new Song("BFF","bambi",174));
+        songList.add(new Song("Nicea","PRO8L3M",217));
+        songList.add(new Song("Nie otweiraj drzwi","bambi",174));
+        songList.add(new Song("Ogień","Gibbs",188));
+        songList.add(new Song("Czarna Róża","Gibbs",180));
+        System.out.println(songList);
+        Collections.sort(songList, new SongComparator());
+        System.out.println(songList);
+        //Napisz klasę Student z polami id (typu int), name (typu String) oraz averageGrade (typu double). Zaimplementuj dwie klasy implementujące generyczny interfejs Comparator: AverageGradeComparator do porównywania obiektów po polu averageGrade (od najwyższej do najniższej średniej ocen) oraz IdComparator do porównywania obiektów po polu id (od najniższego do najwyższego identyfikatora). Stwórz listę 5 obiektów klasy Student i posortuj ją zgodnie z oboma kryteriami (najpierw po średniej ocen, a następnie po identyfikatorze).
+        ArrayList<Student> studentList = new ArrayList<>();
+        studentList.add(new Student(1,"Jakub Budzich",94));
+        studentList.add(new Student(2,"Kuba Budzich",74));
+        studentList.add(new Student(3,"Jakub Budzik",94));
+        studentList.add(new Student(4,"Tomek Budzich",55));
+        studentList.add(new Student(5,"Sławomir Budzich",67));
+        System.out.println(studentList);
+        Collections.sort(studentList, new AverageGradeComparator().thenComparing(new IdComparator()));
+        System.out.println(studentList);
+        //Napisz klasę Athlete z dwoma polami: name (String) i lapTimes (lista tablicowa zmiennych typu Integer, reprezentująca czas w sekundach potrzebny na przebiegnięcie okrążenia podczas różnych prób). Zaimplementuj interfejs Cloneable i nadpisz metodę clone(), aby móc klonować obiekty tej klasy. W metodzie main() utwórz obiekt Athlete, sklonuj go, a następnie zmień czas na pozycji 3 oryginalnego sportowca. Wyświetl czasy obu sportowców, aby zobaczyć, czy są niezależne.
+        Athlete originalAthlete = new Athlete("John Doe", List.of(60, 62, 58, 61));
+        Athlete clonedAthlete = originalAthlete.clone();
+        originalAthlete.setLapTime(2, 55);
+        System.out.println("Czasy oryginalnego sportowca: " + originalAthlete.lapTimes);
+        System.out.println("Czasy sklonowanego sportowca: " + clonedAthlete.lapTimes);
     }
 }
