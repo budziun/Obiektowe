@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
@@ -43,13 +44,34 @@ public class Main {
         orderList.add(new Order(3, "Bob Johnson", LocalDate.of(2023, 2, 1)));
         orderList.add(new Order(4, "Alice Brown", LocalDate.of(2023, 3, 8)));
         orderList.add(new Order(5, "Charlie Wilson", LocalDate.of(2023, 1, 15)));
+        System.out.println(orderList);
         Collections.sort(orderList, new OrderComparator());
         System.out.println(orderList);
         //Napisz klasę Song z polami title (typu String), artist (typu String) oraz duration (typu int). Stwórz nową klasę i zaimplementuj w niej interfejs Comparator do porównywania obiektów po polu duration (od najkrótszej do najdłuższej piosenki), a w przypadku równości po polu title. Stwórz tablicę 5 obiektów klasy Song i posortuj ją zgodnie z opisanym kryterium.
-
+        ArrayList<Song> songList = new ArrayList<>();
+        songList.add(new Song("BFF","bambi",174));
+        songList.add(new Song("Nicea","PRO8L3M",217));
+        songList.add(new Song("Nie otweiraj drzwi","bambi",174));
+        songList.add(new Song("Ogień","Gibbs",188));
+        songList.add(new Song("Czarna Róża","Gibbs",180));
+        System.out.println(songList);
+        Collections.sort(songList, new SongComparator());
+        System.out.println(songList);
         //Napisz klasę Student z polami id (typu int), name (typu String) oraz averageGrade (typu double). Zaimplementuj dwie klasy implementujące generyczny interfejs Comparator: AverageGradeComparator do porównywania obiektów po polu averageGrade (od najwyższej do najniższej średniej ocen) oraz IdComparator do porównywania obiektów po polu id (od najniższego do najwyższego identyfikatora). Stwórz listę 5 obiektów klasy Student i posortuj ją zgodnie z oboma kryteriami (najpierw po średniej ocen, a następnie po identyfikatorze).
-
+        ArrayList<Student> studentList = new ArrayList<>();
+        studentList.add(new Student(1,"Jakub Budzich",94));
+        studentList.add(new Student(2,"Kuba Budzich",74));
+        studentList.add(new Student(3,"Jakub Budzik",94));
+        studentList.add(new Student(4,"Tomek Budzich",55));
+        studentList.add(new Student(5,"Sławomir Budzich",67));
+        System.out.println(studentList);
+        Collections.sort(studentList, new AverageGradeComparator().thenComparing(new IdComparator()));
+        System.out.println(studentList);
         //Napisz klasę Athlete z dwoma polami: name (String) i lapTimes (lista tablicowa zmiennych typu Integer, reprezentująca czas w sekundach potrzebny na przebiegnięcie okrążenia podczas różnych prób). Zaimplementuj interfejs Cloneable i nadpisz metodę clone(), aby móc klonować obiekty tej klasy. W metodzie main() utwórz obiekt Athlete, sklonuj go, a następnie zmień czas na pozycji 3 oryginalnego sportowca. Wyświetl czasy obu sportowców, aby zobaczyć, czy są niezależne.
-
+        Athlete originalAthlete = new Athlete("John Doe", List.of(60, 62, 58, 61));
+        Athlete clonedAthlete = originalAthlete.clone();
+        originalAthlete.setLapTime(2, 55);
+        System.out.println("Czasy oryginalnego sportowca: " + originalAthlete.lapTimes);
+        System.out.println("Czasy sklonowanego sportowca: " + clonedAthlete.lapTimes);
     }
 }
