@@ -1,41 +1,72 @@
-Oczywiście! Oto przykładowa implementacja interfejsu `MusicPlayer` oraz klasy `Radio` w języku Java:
+Oto implementacja interfejsu `MediaPlayer` oraz dwóch klas `AudioPlayer` i `VideoPlayer`:
 
 ```java
-// Interfejs MusicPlayer
-interface MusicPlayer {
-    void turnOn();
-    void turnOff();
-    void nextTrack();
+// Interfejs MediaPlayer
+interface MediaPlayer {
+    void play(String trackName);
+    void pause();
+    String getCurrentTrack();
 }
 
-// Klasa Radio implementująca interfejs MusicPlayer
-class Radio implements MusicPlayer {
+// Klasa AudioPlayer implementująca interfejs MediaPlayer
+class AudioPlayer implements MediaPlayer {
+    private String currentTrack;
+
     @Override
-    public void turnOn() {
-        System.out.println("Radio włączone");
+    public void play(String trackName) {
+        System.out.println("Odtwarzanie audio: " + trackName);
+        currentTrack = trackName;
     }
 
     @Override
-    public void turnOff() {
-        System.out.println("Radio wyłączone");
+    public void pause() {
+        System.out.println("Zatrzymano odtwarzanie audio");
     }
 
     @Override
-    public void nextTrack() {
-        System.out.println("Zmieniono stację radiową");
+    public String getCurrentTrack() {
+        return currentTrack;
     }
 }
 
-// Przykład użycia
-public class Main {
+// Klasa VideoPlayer implementująca interfejs MediaPlayer
+class VideoPlayer implements MediaPlayer {
+    private String currentTrack;
+
+    @Override
+    public void play(String trackName) {
+        System.out.println("Odtwarzanie wideo: " + trackName);
+        currentTrack = trackName;
+    }
+
+    @Override
+    public void pause() {
+        System.out.println("Zatrzymano odtwarzanie wideo");
+    }
+
+    @Override
+    public String getCurrentTrack() {
+        return currentTrack;
+    }
+}
+
+// Klasa MediaPlayerTest do sprawdzenia działania metod
+public class MediaPlayerTest {
     public static void main(String[] args) {
-        Radio radio = new Radio();
-        
-        radio.turnOn();
-        radio.nextTrack();
-        radio.turnOff();
+        AudioPlayer audioPlayer = new AudioPlayer();
+        VideoPlayer videoPlayer = new VideoPlayer();
+
+        // Testowanie AudioPlayer
+        audioPlayer.play("Piosenka 1");
+        System.out.println("Aktualny utwór: " + audioPlayer.getCurrentTrack());
+        audioPlayer.pause();
+
+        // Testowanie VideoPlayer
+        videoPlayer.play("Film 1");
+        System.out.println("Aktualny utwór: " + videoPlayer.getCurrentTrack());
+        videoPlayer.pause();
     }
 }
 ```
 
-W tym przykładzie klasa `Radio` implementuje interfejs `MusicPlayer`, dostarczając odpowiednie implementacje dla każdej z metod. W metodach `turnOn()`, `turnOff()` i `nextTrack()` drukowane są odpowiednie komunikaty.
+W klasie `MediaPlayerTest` utworzono obiekty `AudioPlayer` i `VideoPlayer`, a następnie przetestowano różne metody dla obiektów obu klas. 
