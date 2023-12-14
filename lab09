@@ -31,4 +31,3 @@ public class TestMyComparator implements MyComparator {
         System.out.println("Result 3: " + result3);
     }
 }
-
