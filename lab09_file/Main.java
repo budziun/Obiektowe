@@ -18,6 +18,10 @@ public class Main {
         //Stwórz klasę Motorcycle, również implementującą VehicleManager. W startEngine zwróć “Silnik motocykla uruchomiony”, a w getFuelLevel zwróć wartość 30.
         //W klasie VehicleManagerTest stwórz obiekty obu klas i przetestuj ich metody.
 
-
+        //Stwórz interfejs o nazwie MyComparator, który będzie zawierał metodę compare(int a, int b): int. Metoda ta powinna zwrócić -1, jeśli a < b, 0 jeśli a == b i 1 jeśli a > b. Następnie stwórz klasę TestMyComparator, która będzie implementować ten interfejs. W klasie tej zaimplementuj metodę compare zgodnie z jej opisem.
+        TestMyComparator porownania = new TestMyComparator();
+        System.out.println(porownania.compare(5,15));
+        System.out.println(porownania.compare(25,15));
+        System.out.println(porownania.compare(5,5));
     }
 }
