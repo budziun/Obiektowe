@@ -1,1 +1,41 @@
-test
+Oczywiście! Oto przykładowa implementacja interfejsu `MusicPlayer` oraz klasy `Radio` w języku Java:
+
+```java
+// Interfejs MusicPlayer
+interface MusicPlayer {
+    void turnOn();
+    void turnOff();
+    void nextTrack();
+}
+
+// Klasa Radio implementująca interfejs MusicPlayer
+class Radio implements MusicPlayer {
+    @Override
+    public void turnOn() {
+        System.out.println("Radio włączone");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Radio wyłączone");
+    }
+
+    @Override
+    public void nextTrack() {
+        System.out.println("Zmieniono stację radiową");
+    }
+}
+
+// Przykład użycia
+public class Main {
+    public static void main(String[] args) {
+        Radio radio = new Radio();
+        
+        radio.turnOn();
+        radio.nextTrack();
+        radio.turnOff();
+    }
+}
+```
+
+W tym przykładzie klasa `Radio` implementuje interfejs `MusicPlayer`, dostarczając odpowiednie implementacje dla każdej z metod. W metodach `turnOn()`, `turnOff()` i `nextTrack()` drukowane są odpowiednie komunikaty.
