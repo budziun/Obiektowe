@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         /*Koncert koncert = new Koncert();
@@ -41,6 +43,27 @@ public class Main {
         //Napisz program, który definiuje metodę checkAge(int age). Metoda ta powinna rzucić wyjątek IllegalArgumentException z odpowiednim komunikatem, jeśli podany wiek jest mniejszy niż 18. W głównej metodzie programu (main) wywołaj checkAge z różnymi wartościami i obsłuż wyjątek, wyświetlając stosowny komunikat dla użytkownika.
 
         //Napisz program, który prosi użytkownika o wpisanie dwóch liczb, a następnie dzieli pierwszą liczbę przez drugą. Program powinien obsługiwać dwa rodzaje wyjątków: ArithmeticException w przypadku dzielenia przez zero i InputMismatchException, gdy użytkownik wprowadzi coś innego niż liczby. W obu przypadkach należy wyświetlić stosowny komunikat błędu i poprosić użytkownika o ponowne wprowadzenie danych. Wykorzystaj typ int.
+
+        Scanner sc = new Scanner(System.in);
+        int a;
+        int b;
+        boolean end=false;
+        while(end==false)
+        {
+            try
+            {
+                System.out.println("podaj liczby");
+                a=sc.nextInt();
+                b=sc.nextInt();
+                System.out.println(a/b);
+                end=true;
+            }
+            catch (ArithmeticException | InputMismatchException e)
+            {
+                System.out.println("bledny input, sprobuj jeszcze raz");
+                sc.nextLine();
+            }
+        }
 
         //Zaprojektuj i zaimplementuj klasę wyjątku NiepoprawnyFormatDanychException, która będzie rozszerzać klasę Exception. Następnie napisz metodę sprawdzFormatDanych(String dane), która rzuci wyjątek NiepoprawnyFormatDanychException, jeśli podany ciąg znaków nie odpowiada określonemu wzorcowi (np. nie jest adresem e-mail). W metodzie main przetestuj działanie tej metody, obsługując wyjątek i informując użytkownika o błędzie.
     }
